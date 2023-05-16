@@ -10,16 +10,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RxjsComponent implements OnInit {
 
-  clickEmitted = new BehaviorSubject('Select an Option');
-  options = ['One', 'Two', 'Three'];
+  clickEmitted = new BehaviorSubject('Kannada').value;
   collection = [];
-  searchText: string;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    const sou̥rce = from(["One", "Two", "Three"]);
-
+    const sou̥rce = from(["First", "Second", "Third"]);
     // mergemap
     // This method helps in preventing the data to subscribe again and again.  No need to subscribe to the data twice which is again an observable
     sou̥rce.pipe(mergeMap(data => this.getData(data))).subscribe(res => {
@@ -37,15 +34,14 @@ export class RxjsComponent implements OnInit {
     sou̥rce.pipe(concatMap(data => this.getData(data))).subscribe(res => {
       this.printVal(res, 'concat')
     })
-
-    this.getJson()
+    this.getJson();
   }
 
   getData(data) {
-    return of(data + "Video").pipe(delay(1000))
+    return of(data + " Video").pipe(delay(1000))
   }
 
-  printVal(val, containerId) {
+  printVal(val: string, containerId: string) {
     let el = document.createElement('li');
     el.innerText = val;
     document.getElementById(containerId).appendChild(el)
@@ -57,6 +53,10 @@ export class RxjsComponent implements OnInit {
         this.collection.push(`Data : ${element.title}`)
       });
     });
-    
-   }
+  }
+
+  onSelected(value: string): void {
+    this.clickEmitted = value;
+  }
+
 }

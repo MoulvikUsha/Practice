@@ -1,20 +1,7 @@
-<div class="container mt-5">
-    <div class="serach">
-        <!-- <input [(ngModel)]="searchText"> -->
-        <input class="form-control mr-sm-2 my-3" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchText">
-    </div>
-    <!-- <div class="select p-5">
-    <select class="form-select ott" ngModel (ngModelChange)="mySelectHandler($event)">
-        <option selected disabled>{{clickEmitted}}</option>
-        <option id="value" *ngFor="let value of options" value="1">{{value}}</option>
-    </select>
-</div> -->
-
-    <!-- <button type="text" class="btn btn-primary" id="ott" (click)=mySelectHandler($event)>Click</button>
-<div class="show">{{clickEmitted._value}}</div> -->
-
-
-    <div class="container-fluid">
+<div class="container mt-3">
+    <div class="rxjs pt-3">
+        <h5><b>Rxjs Operators</b></h5>
+        <hr>
         <div class="row">
             <div class="col-sm-4">
                 <h5>SwitchMap</h5>
@@ -30,11 +17,29 @@
             </div>
         </div>
     </div>
-
-    <section>
-        <div class="jsonData">
-            <p *ngFor="let item of collection | filter: searchText | paginate:{itemsPerPage: 10, currentPage: p}">{{item}}</p>
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
-        </div>
-    </section>
+    <br>
+    <div class="serach">
+        <h5><b>Search Element</b></h5>
+        <hr>
+        <input class="form-control mr-sm-2 my-3" type="search" placeholder="Search from Data List"
+            [(ngModel)]="searchText">
+        <section>
+            <div class="jsonData">
+                <p *ngFor="let item of collection | filter: searchText | paginate:{itemsPerPage: 10, currentPage: p}">
+                    {{item}}</p>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </section>
+    </div>
+    <br>
+    <div class="select pt-3">
+        <h5><b>BehaviorSubject</b></h5>
+        <select class="form-control" id="language" #teams (change)="onSelected(teams.value)">
+            <option selected disabled>Select</option>
+            <option value="English">English</option>
+            <option value="Español">Español</option>
+            <option value="Português">Português</option>
+        </select>
+        <p>{{clickEmitted}}</p>
+    </div>
 </div>
