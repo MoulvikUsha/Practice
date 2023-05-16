@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <!-- <div class="select p-5">
+    <select class="form-select ott" ngModel (ngModelChange)="mySelectHandler($event)">
+        <option selected disabled>{{clickEmitted}}</option>
+        <option id="value" *ngFor="let value of options" value="1">{{value}}</option>
+    </select>
+</div> -->
+
+    <!-- <button type="text" class="btn btn-primary" id="ott" (click)=mySelectHandler($event)>Click</button>
+<div class="show">{{clickEmitted._value}}</div> -->
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <h5>SwitchMap</h5>
+                <ul id="switch"></ul>
+            </div>
+            <div class="col-sm-4">
+                <h5>MargeMap</h5>
+                <ul id="merge"></ul>
+            </div>
+            <div class="col-sm-4">
+                <h5>ConcatMap</h5>
+                <ul id="concat"></ul>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="jsonData">
+            <p *ngFor="let item of collection | paginate:{itemsPerPage: 10, currentPage: p}">{{item}}</p>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </section>
+</div>
