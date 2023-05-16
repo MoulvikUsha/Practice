@@ -1,4 +1,8 @@
 <div class="container mt-5">
+    <div class="serach">
+        <!-- <input [(ngModel)]="searchText"> -->
+        <input class="form-control mr-sm-2 my-3" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchText">
+    </div>
     <!-- <div class="select p-5">
     <select class="form-select ott" ngModel (ngModelChange)="mySelectHandler($event)">
         <option selected disabled>{{clickEmitted}}</option>
@@ -29,7 +33,7 @@
 
     <section>
         <div class="jsonData">
-            <p *ngFor="let item of collection | paginate:{itemsPerPage: 10, currentPage: p}">{{item}}</p>
+            <p *ngFor="let item of collection | filter: searchText | paginate:{itemsPerPage: 10, currentPage: p}">{{item}}</p>
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
     </section>

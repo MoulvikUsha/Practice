@@ -13,6 +13,7 @@ export class RxjsComponent implements OnInit {
   clickEmitted = new BehaviorSubject('Select an Option');
   options = ['One', 'Two', 'Three'];
   collection = [];
+  searchText: string;
 
   constructor(private http: HttpClient) { }
 
@@ -41,7 +42,7 @@ export class RxjsComponent implements OnInit {
   }
 
   getData(data) {
-    return of(data + "Video").pipe(delay(10000))
+    return of(data + "Video").pipe(delay(1000))
   }
 
   printVal(val, containerId) {
@@ -53,7 +54,7 @@ export class RxjsComponent implements OnInit {
   getJson() {
     let json = this.http.get('https://jsonplaceholder.typicode.com/todos').subscribe((res: any) => {
       res.forEach(element => {
-        this.collection.push(`Number : ${element.title}`)
+        this.collection.push(`Data : ${element.title}`)
       });
     });
     
