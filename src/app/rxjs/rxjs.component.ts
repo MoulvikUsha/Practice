@@ -34,7 +34,10 @@ export class RxjsComponent implements OnInit {
     sou̥rce.pipe(concatMap(data => this.getData(data))).subscribe(res => {
       this.printVal(res, 'concat')
     })
+
     this.getJson();
+    this.promiseFunction();
+    // this.weather();
   }
 
   getData(data) {
@@ -50,7 +53,7 @@ export class RxjsComponent implements OnInit {
   getJson() {
     let json = this.http.get('https://jsonplaceholder.typicode.com/todos').subscribe((res: any) => {
       res.forEach(element => {
-        this.collection.push(`Data : ${element.title}`)
+        this.collection.push(`${element.title}`)
       });
     });
   }
@@ -59,4 +62,42 @@ export class RxjsComponent implements OnInit {
     this.clickEmitted = value;
   }
 
+  promiseFunction() {
+    let promise = new Promise((resolve, reject) => {
+      if (0 == 0) {
+        resolve("I am resolved")
+      }
+      else {
+        reject("I am rejected")
+      }
+    });
+
+    promise.then(value => {
+      console.log("value: ", value);
+    }).catch(err => {
+      console.log("error: ", err);
+    })
+  }
+
+  async weather() {
+    let bengaluruWeather = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('29 deg')
+      }, 3000);
+    });
+
+    let mangaluruWeather = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('34 deg')
+      }, 5000);
+    });
+
+    console.log("Fetching Bengaluru Weather ...")
+    let bengaluruW = await bengaluruWeather;
+    console.log("Bengaluru weather is " + bengaluruW);
+    
+    console.log("Fetching Mangaluru Weather ...")
+    let mangaluruW = await mangaluruWeather;
+    console.log("Bengaluru weather is " + mangaluruW);
+  }
 }
