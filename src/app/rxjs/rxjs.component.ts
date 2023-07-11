@@ -62,6 +62,8 @@ export class RxjsComponent implements OnInit {
     this.clickEmitted = value;
   }
 
+
+  // promise function
   promiseFunction() {
     let promise = new Promise((resolve, reject) => {
       if (0 == 0) {
@@ -79,6 +81,8 @@ export class RxjsComponent implements OnInit {
     })
   }
 
+
+  // async and await function
   async weather() {
     let bengaluruWeather = new Promise((resolve, reject) => {
       setTimeout(() => {

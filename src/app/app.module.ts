@@ -8,12 +8,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { EmptyRouteComponent } from './empty-route/empty-route.component';
+import { HighChartsComponent } from './high-charts/high-charts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RxjsComponent,
-    FilterPipe
+    FilterPipe,
+    EmptyRouteComponent,
+    HighChartsComponent
   ],
   imports: [
     BrowserModule,
