@@ -26,7 +26,8 @@
     <div class="serach">
         <h5><b>Search Element</b></h5>
         <hr>
-        <input class="form-control mr-sm-2 my-3" type="search" placeholder="Search from Data List" [(ngModel)]="searchText">
+        <input class="form-control mr-sm-2 my-3" type="search" placeholder="Search from Data List"
+            [(ngModel)]="searchText">
         <section>
             <div class="jsonData">
                 <p *ngFor="let item of collection | filter: searchText | paginate:{itemsPerPage: 10, currentPage: p}">

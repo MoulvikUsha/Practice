@@ -99,7 +99,7 @@ export class RxjsComponent implements OnInit {
     console.log("Fetching Bengaluru Weather ...")
     let bengaluruW = await bengaluruWeather;
     console.log("Bengaluru weather is " + bengaluruW);
-    
+
     console.log("Fetching Mangaluru Weather ...")
     let mangaluruW = await mangaluruWeather;
     console.log("Bengaluru weather is " + mangaluruW);
